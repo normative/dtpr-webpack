@@ -2466,42 +2466,6 @@
         </div>
       </div>
     </div>
-
-    <div>
-      <iframe id="chat-example"></iframe>
-<script>
-  const frame = document.getElementById("chat-example");
-  
-  frame.srcdoc = `
-    <div id="chat-client">
-      <!-- injected configured chat client -->
-      <h1>Hello World!!</h1>
-    </div>
-    <style>
-      df-messenger {
-      --df-messenger-button-titlebar-font-color:#333333;
-      --df-messenger-bot-message: #FAFAFA;
-      --df-messenger-button-titlebar-color: #ffffff;
-      --df-messenger-chat-background-color: #fafafa;
-      --df-messenger-font-color: #000000;
-      --df-messenger-send-icon: #000000;
-      --df-messenger-user-message: #bae6ed;
-      }
-    </style>
-  `;
-  const script = frame.contentWindow.document.createElement("script");
-  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"
-  frame.contentWindow.document.getElementById("chat-client").innerHTML = `<df-messenger
-    user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
-    intent="WELCOME"
-    chat-title="Learn About the Computer Vision Mirror"
-    agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
-    chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
-    language-code="en">
-  </df-messenger>`;
-</script>
-    </div>
-
     <div id="sticky-prototype">
         
         
@@ -3041,7 +3005,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -3233,7 +3236,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -3429,7 +3471,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -3621,7 +3702,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -3747,7 +3867,7 @@
   </div> -->
 </div>
         
-      </div>
+      </div>    
       <div class="step-footer">
         <div class="container">
           <div class="row pt-4">
@@ -3990,7 +4110,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -4184,7 +4343,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -4378,7 +4576,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -4570,7 +4807,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -4960,7 +5236,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -5152,7 +5467,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -5346,7 +5700,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -5540,7 +5933,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -5933,7 +6365,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -6128,7 +6599,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -6321,7 +6831,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -6515,7 +7064,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -6905,7 +7493,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -7097,7 +7724,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -7295,7 +7961,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -7489,7 +8194,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -7876,7 +8620,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -8068,7 +8851,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -8262,7 +9084,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -8454,7 +9315,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -8838,7 +9738,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -9030,7 +9969,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -9226,7 +10204,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
@@ -9420,7 +10437,46 @@
   
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <iframe id="chat-example" onload="access()" class="chat-frame"></iframe>
+<script>
+  const frame = document.getElementById("chat-example");
+  
+  frame.srcdoc = `
+    <div id="chat-client">
+      <!-- injected configured chat client -->
+    </div>
+    <style>
+      df-messenger {
+      --df-messenger-button-titlebar-font-color:#333333;
+      --df-messenger-bot-message: #FAFAFA;
+      --df-messenger-button-titlebar-color: #ffffff;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: #000000;
+      --df-messenger-send-icon: #000000;
+      --df-messenger-user-message: #bae6ed;
+      }
+    </style>
+  `;
+
+  const script = frame.contentWindow.document.createElement("script");
+  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+  script.type = "text/javascript";
+
+  function access() {
+    const innerDoc = frame.contentWindow.document || frame.contentDocument;
+    innerDoc.body.appendChild(script);
+    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
+      user-id="{"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","placeId":"recHJJkuqk0AYjHa9","componentId":"recT9MVNlQBhjSBSE"}"
+      intent="WELCOME"
+      chat-title="Learn About the Computer Vision Mirror"
+      agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+      language-code="en">
+    </df-messenger>`;
+  }
+  
+</script>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         
