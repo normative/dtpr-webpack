@@ -27,7 +27,8 @@
   <% if(!contentLeft) { %>
   <div class="d-none d-md-block col-md-6 col-lg-8"></div>
   <% }%>
-  <div class="col-12 col-md-6 col-lg-4 mt-2">
+  <div class="col-12 col-md-6 col-lg-4 mt-2 description-container">
+    <%= require("ejs-loader!./chat-frame.ejs")({id:"chat-example"}) %>
     <div class="card card-lightblue py-2">
       <ul class="list-group">
         <% for (var i =0; i <features.length; i++ ) { %>

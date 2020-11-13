@@ -2031,14 +2031,6 @@ var taxonomy = [
         </div>
       </div>
     </div>
-
-    <div>
-      <%=
-      require("ejs-loader!./templates/chat-frame.ejs")({
-        id: "chat-example"
-      }) %>
-    </div>
-
     <div id="sticky-prototype">
         
         
@@ -2330,7 +2322,7 @@ var taxonomy = [
         <% 
           currentFrame++;
         %>
-      </div>
+      </div>    
       <div class="step-footer">
         <div class="container">
           <%= require("ejs-loader!./templates/step-footer.ejs")({ 
