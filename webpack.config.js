@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HTMLInlineCSSWebpackPlugin = require("html-inline-css-webpack-plugin")
@@ -109,8 +110,12 @@ module.exports = {
     //   cleanOnceBeforeBuildPatterns: ["*.*", "!images*"],
     //   cleanAfterEveryBuildPatterns: ["*.*", "!images*"],
     // }),
+    new webpack.ProvidePlugin({
+      _: "underscore"
+    }),
     new HtmlWebpackPlugin({
       template: "./src/template.ejs",
+      cache: false,
     }),
     // new ExtractTextPlugin("styles.css"),
     new MiniCssExtractPlugin({

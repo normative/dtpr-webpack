@@ -1,45 +1,56 @@
-<iframe id="<%= id %>" onload="access()" class="chat-frame"></iframe>
+<iframe id="<%= chatbotId %>" class="chat-frame"></iframe>
 <script>
-  const frame = document.getElementById("<%= id %>");
-  <%
-  const chatConfig = {
-    agentId: "f92d33ee-bfa0-4c27-9a5d-852381c861c2",
-    placeId: "recHJJkuqk0AYjHa9", 
-    componentId: "recT9MVNlQBhjSBSE"
-  };
-  %>
-  frame.srcdoc = `
-    <div id="chat-client">
-      <!-- injected configured chat client -->
-    </div>
-    <style>
-      df-messenger {
-      --df-messenger-button-titlebar-font-color:#333333;
-      --df-messenger-bot-message: #FAFAFA;
-      --df-messenger-button-titlebar-color: #ffffff;
-      --df-messenger-chat-background-color: #fafafa;
-      --df-messenger-font-color: #000000;
-      --df-messenger-send-icon: #000000;
-      --df-messenger-user-message: #bae6ed;
+  (function renderChatbot() {
+    const frame = document.getElementById("<%= chatbotId %>");
+    const script = frame.contentWindow.document.createElement("script");
+
+    <%
+      const _chatConfig = {
+        agentId: "f92d33ee-bfa0-4c27-9a5d-852381c861c2", // this is the dialog-flow id for the specific agent which should handle the requests
+        startingIntent: "learn-about-component", // the intent that the conversation will start on - also persisted under the originalIntent
+        componentId: 'rec8fAgsB2c98ltIU',
+        placeId: 'recDtlwq338h5oNjl',
+      };
+    %>
+
+    script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
+    script.type = "text/javascript";
+
+    frame.srcdoc = `
+      <div id="chat-client">
+        <!-- injected configured chat client -->
+      </div>
+      <style>
+        df-messenger {
+        --df-messenger-button-titlebar-font-color:#333333;
+        --df-messenger-bot-message: #FAFAFA;
+        --df-messenger-button-titlebar-color: #ffffff;
+        --df-messenger-chat-background-color: #fafafa;
+        --df-messenger-font-color: #000000;
+        --df-messenger-send-icon: #000000;
+        --df-messenger-user-message: #bae6ed;
+        }
+      </style>
+    `;
+
+    frame.onload = function () {
+      const innerDoc = frame.contentWindow.document || frame.contentDocument;
+
+      // user-id="\{\\"agentId\\": \\"${_chatConfig.agentId}\\", \\"startingIntent\\": \\"${_chatConfig.startingIntent}\\", \\"componentId\\": \\"<%= chatbot.componentId %>\\", \\"placeId\\": \\"<%= chatbot.placeId %>\\"\}"
+      function getHtml () {
+        return `<df-messenger
+          user-id="${JSON.stringify(_chatConfig)}"
+          intent="WELCOME"
+          chat-title="<%= chatbot.title %>"
+          agent-id="${_chatConfig.agentId}"
+          chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+          language-code="en">
+        </df-messenger>`;
       }
-    </style>
-  `;
 
-  const script = frame.contentWindow.document.createElement("script");
-  script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
-  script.type = "text/javascript";
-
-  function access() {
-    const innerDoc = frame.contentWindow.document || frame.contentDocument;
-    innerDoc.body.appendChild(script);
-    innerDoc.getElementById("chat-client").innerHTML = `<df-messenger
-      user-id="${JSON.stringify(chatConfig)}"
-      intent="WELCOME"
-      chat-title="Learn About the Computer Vision Mirror"
-      agent-id="${chatConfig.agentId}"
-      chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
-      language-code="en">
-    </df-messenger>`;
-  }
-  
+      console.log('>>>>>>', getHtml());
+      innerDoc.body.appendChild(script);
+      innerDoc.getElementById("chat-client").innerHTML = getHtml();
+    }
+  })();
 </script>
