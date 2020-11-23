@@ -4,15 +4,6 @@
     const frame = document.getElementById("<%= chatbotId %>");
     const script = frame.contentWindow.document.createElement("script");
 
-    <%
-      const _chatConfig = {
-        agentId: "f92d33ee-bfa0-4c27-9a5d-852381c861c2", // this is the dialog-flow id for the specific agent which should handle the requests
-        startingIntent: "learn-about-component", // the intent that the conversation will start on - also persisted under the originalIntent
-        componentId: 'rec8fAgsB2c98ltIU',
-        placeId: 'recDtlwq338h5oNjl',
-      };
-    %>
-
     script.src = "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1";
     script.type = "text/javascript";
 
@@ -36,19 +27,17 @@
     frame.onload = function () {
       const innerDoc = frame.contentWindow.document || frame.contentDocument;
 
-      // user-id="\{\\"agentId\\": \\"${_chatConfig.agentId}\\", \\"startingIntent\\": \\"${_chatConfig.startingIntent}\\", \\"componentId\\": \\"<%= chatbot.componentId %>\\", \\"placeId\\": \\"<%= chatbot.placeId %>\\"\}"
       function getHtml () {
         return `<df-messenger
-          user-id="${JSON.stringify(_chatConfig)}"
+          user-id={"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","startingIntent":"learn-about-component","placeId":"<%= chatbot.placeId %>","componentId":"<%= chatbot.componentId %>"}
           intent="WELCOME"
           chat-title="<%= chatbot.title %>"
-          agent-id="${_chatConfig.agentId}"
-          chat-icon="https://helpfulplaces.com/dtpr_prototype/icon.png"
+          agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+          chat-icon="images/DTPR.png"
           language-code="en">
         </df-messenger>`;
       }
 
-      console.log('>>>>>>', getHtml());
       innerDoc.body.appendChild(script);
       innerDoc.getElementById("chat-client").innerHTML = getHtml();
     }
