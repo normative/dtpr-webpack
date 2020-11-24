@@ -40,6 +40,16 @@
 
       innerDoc.body.appendChild(script);
       innerDoc.getElementById("chat-client").innerHTML = getHtml();
+
+      let messageList = null;
+
+      frame.contentWindow.addEventListener('dfMessengerLoaded', function (event) {
+        const messageList = event.target.document.querySelector('df-messenger').shadowRoot.querySelector('df-messenger-chat').shadowRoot.querySelector('df-message-list').shadowRoot;
+        const button = event.target.document.querySelector('df-messenger').shadowRoot.getElementById('widgetIcon');
+        button.addEventListener('click', function (event) {
+          messageList.getElementById('messageList').scrollTop = 0;
+        });
+      });
     }
   })();
 </script>
