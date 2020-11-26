@@ -859,6 +859,8 @@ h6 {
   }
 }
 
+
+
 .description-container {
   position: relative;
   .chat-frame {
@@ -869,14 +871,4 @@ h6 {
     bottom: -5rem;
     right: 0;
   }
-}
-
-df-messenger {
-  --df-messenger-button-titlebar-font-color:#333333;
-  --df-messenger-bot-message: #FAFAFA;
-  --df-messenger-button-titlebar-color: #ffffff;
-  --df-messenger-chat-background-color: #fafafa;
-  --df-messenger-font-color: #000000;
-  --df-messenger-send-icon: #000000;
-  --df-messenger-user-message: #bae6ed;
 }
