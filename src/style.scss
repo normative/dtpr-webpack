@@ -360,10 +360,6 @@ h6 {
     transition: transform 0.5s;
   }
 }
-#chat-client {
-  position: absolute;
-  z-index: 1100;
-}
 #sticky-prototype {
   position: fixed;
   left: 30px;
@@ -869,6 +865,11 @@ h6 {
     bottom: -5rem;
     right: 0;
   }
+}
+
+#chat-client {
+  position: absolute;
+  z-index: 1100;
 }
 
 df-messenger {

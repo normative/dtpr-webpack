@@ -355,35 +355,32 @@ function mapScenariosFrames () {
     for(let k = 0; k < 4; k++) {
       const frame = element.querySelector(`[data-stepframe='${k}']`).getBoundingClientRect();
       const frameY = frame.top - bodyTop;
-      console.log('>>>>>> section-scenario-%s => stepframe-%s = ', i, k, frameY);
       framesTop.push({ scenario: i-1, frame: k, frameY, height: frame.height });
     }
   }
 
   function isAtFrame (frame) {
     const scrollTop = window.document.querySelector('html').scrollTop;
-    return scrollTop > frame.frameY && scrollTop < (frame.frameY + frame.height);
+    return scrollTop > frame.frameY && scrollTop < (frame.frameY + frame.height / 2);
   }
 
   let currentFrame = null;
   function findFrame() {
     const scrollTop = window.document.querySelector('html').scrollTop;
     if (scrollTop < framesTop[0].frameY) return;
-    if (scrollTop > (framesTop[27].frameY + framesTop[27].height)) return;
+    if (scrollTop > (framesTop[27].frameY + framesTop[27].height / 2)) return;
 
     return framesTop.find(function (frame, i) {
       return isAtFrame(frame);
     });
   };
 
-  window.document.addEventListener('scroll', function (event) {
-    console.log('>>>>>> scroll');
+  function handleWindowScroll () {
     if (currentFrame && isAtFrame(currentFrame)) return;
     currentFrame = findFrame();
 
-    console.log('>>>>>> currentFrame', currentFrame);
     if (!currentFrame) {
-      document.getElementById("chat-client").innerHTML = undefined;
+      document.getElementById("chat-client").innerHTML = '';
       return;
     }
 
@@ -391,7 +388,6 @@ function mapScenariosFrames () {
     // Element is injected dynamically to allow chatConfig to be written into the chat client on start up
     // We make use of the user-id string which is passed to the Dialog-Flow fulfillment code to transport
     // a JSON formatted string of configuration information
-    console.log('>>>>>> inject', chatConfig);
     document.getElementById("chat-client").innerHTML =
       `<df-messenger
         user-id={"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","startingIntent":"learn-about-component","placeId":"${chatConfig.placeId}","componentId":"${chatConfig.componentId}"}
@@ -399,10 +395,13 @@ function mapScenariosFrames () {
         chat-title="${chatConfig.title}"
         agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
         language-code="en"
-        wait-open="true"
-        chat-icon="images/DTPR.png">
+        chat-icon="images/DTPR.png"
+      >
       </df-messenger>`;
-  });
+  }
+
+  window.document.addEventListener('scroll', handleWindowScroll);
+  handleWindowScroll();
 };
 
 window.addEventListener('load', function () {
