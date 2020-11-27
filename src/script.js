@@ -388,16 +388,15 @@ function mapScenariosFrames () {
     }
 
     const chatConfig = chatbotConfig[currentFrame.scenario][currentFrame.frame];
-    let widgetButton;
 
     window.addEventListener('df-response-received', function (evt) {
-      console.log('>>>>>> df-response-received');
       const messageList = evt.target.shadowRoot
         .querySelector('df-messenger-chat').shadowRoot
         .querySelector('df-message-list').shadowRoot
         .getElementById('messageList');
 
-        if (messageList.children.length <= 1) {
+
+        if (messageList.getElementsByClassName('bot-message').length <= 1) {
           setTimeout(function () {
             messageList.scrollTop = 0;
           }, 100);
