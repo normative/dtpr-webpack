@@ -383,7 +383,6 @@ function mapScenariosFrames () {
     currentFrame = findFrame();
 
     if (!currentFrame) {
-      chatClient.setAttribute('style', "pointer-events: none");
       chatClient.innerHTML = '';
       return;
     }
@@ -391,16 +390,18 @@ function mapScenariosFrames () {
     const chatConfig = chatbotConfig[currentFrame.scenario][currentFrame.frame];
     let widgetButton;
 
-    window.addEventListener('df-response-received', function () {
+    window.addEventListener('df-response-received', function (evt) {
       console.log('>>>>>> df-response-received');
-      if (getComputedStyle(chatClient).pointerEvents === 'none') {
-        chatClient
-          .querySelector('df-messenger')
-          .shadowRoot
-          .getElementById('widgetIcon')
-          .setAttribute('style', 'opacity: 1');
-        chatClient.setAttribute('style', "pointer-events: all");
-      }
+      const messageList = evt.target.shadowRoot
+        .querySelector('df-messenger-chat').shadowRoot
+        .querySelector('df-message-list').shadowRoot
+        .getElementById('messageList');
+
+        if (messageList.children.length <= 1) {
+          setTimeout(function () {
+            messageList.scrollTop = 0;
+          }, 100);
+        }
     });
     // Element is injected dynamically to allow chatConfig to be written into the chat client on start up
     // We make use of the user-id string which is passed to the Dialog-Flow fulfillment code to transport
@@ -414,14 +415,9 @@ function mapScenariosFrames () {
         agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
         language-code="en"
         chat-icon="images/DTPR.png"
+        wait-open="true"
       >
       </df-messenger>`;
-
-    chatClient
-      .querySelector('df-messenger')
-      .shadowRoot
-      .getElementById('widgetIcon')
-      .setAttribute('style', 'opacity: 0.5');
   }
 
   window.document.addEventListener('scroll', handleWindowScroll);
