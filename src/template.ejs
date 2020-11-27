@@ -13,6 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/intersection-observer"></script>
     <script src="https://unpkg.com/scrollama"></script>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
   </head>
   <body>
     <%
@@ -24,7 +25,11 @@
       var orgBank = "Bank Co."
       var orgGov = "Gov Dept.";
     %>
-
+    <div id="prototype-chat">
+      <div id="chat-client">
+        <!-- injected configured chat client -->
+      </div>
+    </div>
     <!-- NAVIGATION -->
     <%=
     require("ejs-loader!./templates/header.ejs")({}) %>
@@ -2150,56 +2155,6 @@ var taxonomy = [
       ];
       %>
 
-      <% const chatbotConfig = [
-          [ // scenario 1 (a, b, c, d)
-            { title: 'Learn About BikeShare Co Mobility System', componentId: 'rec8fAgsB2c98ltIU', placeId: 'recDtlwq338h5oNjl', },
-            { title: 'Learn About Agency System - Plaza', componentId: 'recaqqa3R43debY3l', placeId: 'recDtlwq338h5oNjl', },
-            { title: 'Learn About Library Borrowing System', componentId: 'recaxVBIJDm2Cx5gY', placeId: 'recDtlwq338h5oNjl', },
-            { title: 'Learn About Library Borrowing System', componentId: 'recaxVBIJDm2Cx5gY', placeId: 'recDtlwq338h5oNjl', }
-          ],
-          [ // scenario 2 (a, b, c, d)
-            { title: 'Learn About Agency System - Unique Chic', componentId: 'recyZEHi93W12Pu6v', placeId: 'recDtlwq338h5oNjl', },
-            { title: 'Learn About Virtual Changing Room', componentId: 'recaeEMK59ayD6v4i', placeId: 'recDtlwq338h5oNjl', },
-            { title: 'Learn About Virtual Changing Room', componentId: 'recaeEMK59ayD6v4i', placeId: 'recDtlwq338h5oNjl', },
-            { title: 'Learn About Grab and Go Payments - Unique Chic', componentId: 'recqqnyBjyKZM0PHF', placeId: 'recDtlwq338h5oNjl', },
-          ],
-          [ // scenario 3 (a, b, c, d)
-            { title: 'Learn About Arts Feedback System', componentId: 'recKtjxEcw9x7Hvxk', placeId: 'recDtlwq338h5oNjl', },
-            { title: 'Learn About Arts Feedback System', componentId: 'recKtjxEcw9x7Hvxk', placeId: 'recDtlwq338h5oNjl', },
-            { title: 'Learn About Inform System - Plaza', componentId: 'recDTKLqPrgXhuCvm', placeId: 'recDtlwq338h5oNjl', },
-            { title: 'Learn About Cellular Phone', componentId: 'reciyeJc5l276Nn96', placeId: 'recDtlwq338h5oNjl', },
-          ],
-          [ // scenario 4 (a, b, c, d)
-            { title: 'Learn About Sunshine Sushi Ordering System', componentId: 'recf081uxuPQRQutZ', placeId: 'recDtlwq338h5oNjl', },
-            { title: 'Learn About Inform System - Plaza', componentId: 'recDTKLqPrgXhuCvm', placeId: 'recDtlwq338h5oNjl', },
-            { title: 'Learn About West Side Plaza Mobility System', componentId: 'recLAW92gvb1e84g7', placeId: 'recDtlwq338h5oNjl', },
-            { title: 'Learn About Sunshine Sushi Ordering System', componentId: 'recf081uxuPQRQutZ', placeId: 'recDtlwq338h5oNjl', },
-
-          ],
-          [ // scenario 5 (a, b, c, c, c, c)
-            { title: 'Learn About West Side Plaza Smart Waste System', componentId: 'recrLfW6Zm3iAJQpz', placeId: 'recDtlwq338h5oNjl', },
-            { title: 'Learn About Location Data Sharing - Energy Scheduler', componentId: 'recPkFEDdzGSwx1N6', placeId: 'recDtlwq338h5oNjl', },
-            { title: 'Learn About West Side Plaza Sustainability Systems', componentId: 'rec0TU14pgPA0TiWV', placeId: 'recDtlwq338h5oNjl', },
-            { title: 'Learn About West Side Plaza Energy Scheduler', componentId: 'recvQUeDYowKhUFH8', placeId: 'recDtlwq338h5oNjl', },
-            // { title: 'Learn About Thermal Grid', componentId: 'recChHJz11WtJHb7X', placeId: 'recDtlwq338h5oNjl', },
-            // { title: 'Learn About Lighting System', componentId: 'recALCUYUYzmaEzKO', placeId: 'recDtlwq338h5oNjl', },
-          ],
-          [ // scenario 6 (a, b, c, a, d)
-            { title: 'Learn About West Side Plaza on-site support', componentId: 'recBY7B3aCSDCE5vV', placeId: 'recDtlwq338h5oNjl', },
-            { title: 'Learn About West Side Plaza Safety & Security', componentId: 'reczGG2kvRjR3zxqi', placeId: 'recDtlwq338h5oNjl', },
-            // { title: 'Learn About West Side Plaza Safety & Security', componentId: 'reczGG2kvRjR3zxqi', placeId: 'recDtlwq338h5oNjl', },
-            { title: 'Learn About Inform System - Plaza', componentId: 'recDTKLqPrgXhuCvm', placeId: 'recDtlwq338h5oNjl', },
-            { title: 'Learn About BikeShare Co Mobility System', componentId: 'rec8fAgsB2c98ltIU', placeId: 'recDtlwq338h5oNjl', },
-          ],
-          [ // scenario 7 (a, b, c, d)
-            { title: 'Learn About Greenwave Mobility System', componentId: 'recjM2DDblwt2CpFz', placeId: 'recDtlwq338h5oNjl', },
-            { title: 'Learn About Home Agency System', componentId: 'recblubc63H3qNso3', placeId: 'rec1Bq2htVzd8gJwy', },
-            { title: 'Learn About Personal AI', componentId: 'recNww3zikCXTsz7Z', placeId: 'rec1Bq2htVzd8gJwy', },
-            { title: 'Learn About Cellular Phone', componentId: 'reciyeJc5l276Nn96', placeId: 'recDtlwq338h5oNjl', },
-          ],
-        ];
-      %>
-
       <div class="container pt-1 scenarios-toc">
         <%= require("ejs-loader!./templates/vision-intro.ejs")({
           prehead:"A Vision",
@@ -2275,8 +2230,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:false,
           prototypeType:"framer",
           prototypeUrl:"framer://bikedock",
@@ -2302,8 +2255,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:true,
           prototypeType:"framer",
           prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
@@ -2329,8 +2280,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:false,
           prototypeType:"dialogflow",
           prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/place.html",
@@ -2356,8 +2305,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:true,
           prototypeType:"framer",
           prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
@@ -2434,8 +2381,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:false,
           prototypeType:"dialogflow",
           prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/place.html",
@@ -2461,8 +2406,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:true,
           prototypeType:"framer",
           prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
@@ -2488,8 +2431,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:false,
           prototypeType:"dialogflow",
           prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/sensor.html",
@@ -2515,8 +2456,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:true,
           prototypeType:"framer",
           prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
@@ -2594,8 +2533,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:false,
           prototypeType:"dialogflow",
           prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/place.html",
@@ -2621,8 +2558,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:true,
           prototypeType:"framer",
           prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
@@ -2648,8 +2583,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:false,
           prototypeType:"dialogflow",
           prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/place.html",
@@ -2675,8 +2608,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:true,
           prototypeType:"framer",
           prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
@@ -2754,8 +2685,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:false,
           prototypeType:"dialogflow",
           prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/place.html",
@@ -2781,8 +2710,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:false,
           prototypeType:"dialogflow",
           prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/place.html",
@@ -2807,8 +2734,6 @@ var taxonomy = [
         %>
       </div><div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:true,
           prototypeType:"framer",
           prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
@@ -2834,8 +2759,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:true,
           prototypeType:"framer",
           prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
@@ -2913,8 +2836,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:false,
           prototypeType:"dialogflow",
           prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/system.html",
@@ -2940,8 +2861,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:true,
           prototypeType:"framer",
           prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
@@ -2969,8 +2888,6 @@ var taxonomy = [
       <!-- TODO: Put in numina sensor prototype -->
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:false,
           prototypeType:"dialogflow",
           prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/place.html",
@@ -2996,8 +2913,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:true,
           prototypeType:"framer",
           prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
@@ -3075,8 +2990,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:false,
           prototypeType:"dialogflow",
           prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/place.html",
@@ -3102,8 +3015,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:true,
           prototypeType:"framer",
           prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
@@ -3129,8 +3040,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:false,
           prototypeType:"dialogflow",
           prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/place.html",
@@ -3156,8 +3065,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:true,
           prototypeType:"framer",
           prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
@@ -3235,8 +3142,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:false,
           prototypeType:"dialogflow",
           prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/place.html",
@@ -3262,8 +3167,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:true,
           prototypeType:"framer",
           prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
@@ -3289,8 +3192,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:false,
           prototypeType:"dialogflow",
           prototypeUrl:"https://dtpr.sidewalklabs.com/dtpr_chatbot/place.html",
@@ -3316,8 +3217,6 @@ var taxonomy = [
       </div>
       <div>
         <%= require("ejs-loader!./templates/step-holder.ejs")({
-          chatbot: chatbotConfig[currentIndex][currentFrame],
-          chatbotId: `chartbot-${currentIndex}_${currentFrame}`,
           contentLeft:true,
           prototypeType:"framer",
           prototypeUrl:"https://framer.com/share/Step1-ghD2K7KlMUDR3jc4Am7m/UXM1Lab84",
@@ -3381,8 +3280,5 @@ var taxonomy = [
         </div>
       </div>
     </div>
-
-
-
   </body>
 </html>

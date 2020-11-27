@@ -294,3 +294,140 @@ function scrollToSection(sectionElement) {
     }
   );
 }
+
+function mapScenariosFrames () {
+  const chatbotConfig = [
+    [ // scenario 1 (a, b, c, d)
+      { title: "Learn About BikeShare Co Mobility System", componentId: "rec8fAgsB2c98ltIU", placeId: "recDtlwq338h5oNjl", },
+      { title: "Learn About Agency System - Plaza", componentId: "recaqqa3R43debY3l", placeId: "recDtlwq338h5oNjl", },
+      { title: "Learn About Library Borrowing System", componentId: "recaxVBIJDm2Cx5gY", placeId: "recDtlwq338h5oNjl", },
+      { title: "Learn About Library Borrowing System", componentId: "recaxVBIJDm2Cx5gY", placeId: "recDtlwq338h5oNjl", }
+    ],
+    [ // scenario 2 (a, b, c, d)
+      { title: "Learn About Agency System - Unique Chic", componentId: "recyZEHi93W12Pu6v", placeId: "recDtlwq338h5oNjl", },
+      { title: "Learn About Virtual Changing Room", componentId: "recaeEMK59ayD6v4i", placeId: "recDtlwq338h5oNjl", },
+      { title: "Learn About Virtual Changing Room", componentId: "recaeEMK59ayD6v4i", placeId: "recDtlwq338h5oNjl", },
+      { title: "Learn About Grab and Go Payments - Unique Chic", componentId: "recqqnyBjyKZM0PHF", placeId: "recDtlwq338h5oNjl", },
+    ],
+    [ // scenario 3 (a, b, c, d)
+      { title: "Learn About Arts Feedback System", componentId: "recKtjxEcw9x7Hvxk", placeId: "recDtlwq338h5oNjl", },
+      { title: "Learn About Arts Feedback System", componentId: "recKtjxEcw9x7Hvxk", placeId: "recDtlwq338h5oNjl", },
+      { title: "Learn About Inform System - Plaza", componentId: "recDTKLqPrgXhuCvm", placeId: "recDtlwq338h5oNjl", },
+      { title: "Learn About Cellular Phone", componentId: "reciyeJc5l276Nn96", placeId: "recDtlwq338h5oNjl", },
+    ],
+    [ // scenario 4 (a, b, c, d)
+      { title: "Learn About Sunshine Sushi Ordering System", componentId: "recf081uxuPQRQutZ", placeId: "recDtlwq338h5oNjl", },
+      { title: "Learn About Inform System - Plaza", componentId: "recDTKLqPrgXhuCvm", placeId: "recDtlwq338h5oNjl", },
+      { title: "Learn About West Side Plaza Mobility System", componentId: "recLAW92gvb1e84g7", placeId: "recDtlwq338h5oNjl", },
+      { title: "Learn About Sunshine Sushi Ordering System", componentId: "recf081uxuPQRQutZ", placeId: "recDtlwq338h5oNjl", },
+
+    ],
+    [ // scenario 5 (a, b, c, c, c, c)
+      { title: "Learn About West Side Plaza Smart Waste System", componentId: "recrLfW6Zm3iAJQpz", placeId: "recDtlwq338h5oNjl", },
+      { title: "Learn About Location Data Sharing - Energy Scheduler", componentId: "recPkFEDdzGSwx1N6", placeId: "recDtlwq338h5oNjl", },
+      { title: "Learn About West Side Plaza Sustainability Systems", componentId: "rec0TU14pgPA0TiWV", placeId: "recDtlwq338h5oNjl", },
+      { title: "Learn About West Side Plaza Energy Scheduler", componentId: "recvQUeDYowKhUFH8", placeId: "recDtlwq338h5oNjl", },
+      // { title: "Learn About Thermal Grid", componentId: "recChHJz11WtJHb7X", placeId: "recDtlwq338h5oNjl", },
+      // { title: "Learn About Lighting System", componentId: "recALCUYUYzmaEzKO", placeId: "recDtlwq338h5oNjl", },
+    ],
+    [ // scenario 6 (a, b, c, a, d)
+      { title: "Learn About West Side Plaza on-site support", componentId: "recBY7B3aCSDCE5vV", placeId: "recDtlwq338h5oNjl", },
+      { title: "Learn About West Side Plaza Safety & Security", componentId: "reczGG2kvRjR3zxqi", placeId: "recDtlwq338h5oNjl", },
+      // { title: "Learn About West Side Plaza Safety & Security", componentId: "reczGG2kvRjR3zxqi", placeId: "recDtlwq338h5oNjl", },
+      { title: "Learn About Inform System - Plaza", componentId: "recDTKLqPrgXhuCvm", placeId: "recDtlwq338h5oNjl", },
+      { title: "Learn About BikeShare Co Mobility System", componentId: "rec8fAgsB2c98ltIU", placeId: "recDtlwq338h5oNjl", },
+    ],
+    [ // scenario 7 (a, b, c, d)
+      { title: "Learn About Greenwave Mobility System", componentId: "recjM2DDblwt2CpFz", placeId: "recDtlwq338h5oNjl", },
+      { title: "Learn About Home Agency System", componentId: "recblubc63H3qNso3", placeId: "rec1Bq2htVzd8gJwy", },
+      { title: "Learn About Personal AI", componentId: "recNww3zikCXTsz7Z", placeId: "rec1Bq2htVzd8gJwy", },
+      { title: "Learn About Cellular Phone", componentId: "reciyeJc5l276Nn96", placeId: "recDtlwq338h5oNjl", },
+    ],
+  ];
+
+  const bodyTop = document.body.getBoundingClientRect().top;
+  // 7 scenarios
+  const framesTop = [];
+  for(let i = 1; i <= 7; i++) {
+    const scenario = `section-scenario-${i}`;
+    const element = document.getElementById(scenario);
+    // 4 frames
+    for(let k = 0; k < 4; k++) {
+      const frame = element.querySelector(`[data-stepframe='${k}']`).getBoundingClientRect();
+      const frameY = frame.top - bodyTop;
+      framesTop.push({ scenario: i-1, frame: k, frameY, height: frame.height });
+    }
+  }
+
+  function isAtFrame (frame) {
+    const scrollTop = window.document.querySelector('html').scrollTop;
+    return scrollTop + 150 > frame.frameY && scrollTop < (frame.frameY + frame.height / 2);
+  }
+
+  let currentFrame = null;
+  function findFrame() {
+    const scrollTop = window.document.querySelector('html').scrollTop;
+    if (scrollTop < framesTop[0].frameY) return;
+    if (scrollTop > (framesTop[27].frameY + framesTop[27].height / 2)) return;
+
+    return framesTop.find(function (frame, i) {
+      return isAtFrame(frame);
+    });
+  };
+
+  function handleWindowScroll () {
+    const chatClient = document.getElementById("chat-client");
+
+
+    if (currentFrame && isAtFrame(currentFrame)) return;
+    currentFrame = findFrame();
+
+    if (!currentFrame) {
+      chatClient.setAttribute('style', "pointer-events: none");
+      chatClient.innerHTML = '';
+      return;
+    }
+
+    const chatConfig = chatbotConfig[currentFrame.scenario][currentFrame.frame];
+    let widgetButton;
+
+    window.addEventListener('df-response-received', function () {
+      console.log('>>>>>> df-response-received');
+      if (getComputedStyle(chatClient).pointerEvents === 'none') {
+        chatClient
+          .querySelector('df-messenger')
+          .shadowRoot
+          .getElementById('widgetIcon')
+          .setAttribute('style', 'opacity: 1');
+        chatClient.setAttribute('style', "pointer-events: all");
+      }
+    });
+    // Element is injected dynamically to allow chatConfig to be written into the chat client on start up
+    // We make use of the user-id string which is passed to the Dialog-Flow fulfillment code to transport
+    // a JSON formatted string of configuration information
+
+    chatClient.innerHTML =
+      `<df-messenger
+        user-id={"agentId":"f92d33ee-bfa0-4c27-9a5d-852381c861c2","startingIntent":"learn-about-component","placeId":"${chatConfig.placeId}","componentId":"${chatConfig.componentId}"}
+        intent="WELCOME"
+        chat-title="${chatConfig.title}"
+        agent-id="f92d33ee-bfa0-4c27-9a5d-852381c861c2"
+        language-code="en"
+        chat-icon="images/DTPR.png"
+      >
+      </df-messenger>`;
+
+    chatClient
+      .querySelector('df-messenger')
+      .shadowRoot
+      .getElementById('widgetIcon')
+      .setAttribute('style', 'opacity: 0.5');
+  }
+
+  window.document.addEventListener('scroll', handleWindowScroll);
+  handleWindowScroll();
+};
+
+window.addEventListener('load', function () {
+  mapScenariosFrames();
+})
