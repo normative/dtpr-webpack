@@ -417,10 +417,18 @@ function mapScenariosFrames () {
         wait-open="true"
       >
       </df-messenger>`;
+
+    window.document
+      .querySelector('df-messenger').shadowRoot
+      .querySelector('df-messenger-chat').shadowRoot
+      .querySelector('df-messenger-titlebar').shadowRoot
+      .getElementById('minimizeIcon').setAttribute('style', 'visibility: visible');
   }
 
   window.document.addEventListener('scroll', handleWindowScroll);
-  handleWindowScroll();
+  setTimeout(function () {
+    handleWindowScroll();
+  }, 100);
 };
 
 window.addEventListener('load', function () {
