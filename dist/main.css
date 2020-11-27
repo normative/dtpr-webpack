@@ -10282,11 +10282,6 @@ h6 {
   transition: transform 0.5s;
 }
 
-#chat-client {
-  position: absolute;
-  z-index: 1100;
-}
-
 #sticky-prototype {
   position: fixed;
   left: 30px;
@@ -10773,4 +10768,20 @@ h6 {
   position: absolute;
   bottom: -5rem;
   right: 0;
+}
+
+#chat-client {
+  position: absolute;
+  z-index: 1100;
+  pointer-events: none;
+}
+
+df-messenger {
+  --df-messenger-button-titlebar-font-color:#333333;
+  --df-messenger-bot-message: #FAFAFA;
+  --df-messenger-button-titlebar-color: #ffffff;
+  --df-messenger-chat-background-color: #fafafa;
+  --df-messenger-font-color: #000000;
+  --df-messenger-send-icon: #000000;
+  --df-messenger-user-message: #bae6ed;
 }
