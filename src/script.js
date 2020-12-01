@@ -104,11 +104,10 @@ $(function () {
       lastId = cardId;
     });
     phonePositions.push(sectionPositions);
-    console.log(i, sectionIds);
   });
 
   scroller = scrollama();
-  $(".prototype-loader .btn").click(function () {
+  $(".prototype-loader .btn").on('click', function () {
     var loaderEl = $(this).parents(".prototype-loader");
     var parentEl = loaderEl.parents(".prototype");
     var containerEl = parentEl.find(".prototype-container");
@@ -121,43 +120,45 @@ $(function () {
     iFrame.attr("src", iFrame.attr("data-src"));
   });
 
-  $("[data-link]").click(function () {
+  $("[data-link]").on('click', function () {
     var id = $(this).data("link");
     scrollToSection($("#" + id));
     window.location.hash = id;
   });
-  $(".btn-seemore").click(function () {
+  $(".btn-seemore").on('click', function () {
     $(this).parents(".taxonomy-container").css("height", "auto");
     $(this).parents(".taxonomy-seemore").hide();
   });
 
-  $(".nav-open-menu").click(function () {
+  $(".nav-open-menu").on('click', function () {
     $(".menu-overlay-container").show();
   });
-  $(".menu-overlay-container").click(function () {
+  $(".menu-overlay-container").on('click', function () {
     $(".menu-overlay-container").hide();
   });
-  $(".section-title").click(function () {
+  $(".section-title").on('click', function () {
     scrollToSection($(this).parents(".step"));
   });
-  $(".nav-prev-section").click(function () {
-    scrollToSection($(currentSection).prev(".step"));
+  $(".nav-prev-section").on('click', function () {
+    debugger;
+    scrollToSection($(currentSection).prevAll(".step").first());
   });
-  $(".nav-next-section").click(function () {
-    scrollToSection($(currentSection).next(".step"));
+  $(".nav-next-section").on('click', function () {
+    debugger
+    scrollToSection($(currentSection).nextAll(".step").first());
   });
-  $(".cards-principles .btn-circle").click(function () {
+  $(".cards-principles .btn-circle").on('click', function () {
     var width = $($(".cards-principles .col-10")[0]).width();
     width += $($(".cards-principles .col-10")[1]).width();
     $(".cards-principles").animate({ scrollLeft: width }, 500);
   });
-  $(".cards-projects .btn-circle").click(function () {
+  $(".cards-projects .btn-circle").on('click', function () {
     var width = $($(".cards-projects .col-10")[0]).width();
     width += $($(".cards-projects .col-10")[1]).width();
     $(".cards-projects").animate({ scrollLeft: width }, 500);
   });
   currentAgent = $($(".ai-option.selected .avatar .material-icons")[0]).text();
-  $(".ai-option").click(function () {
+  $(".ai-option").on('click', function () {
     $(".ai-option.selected").removeClass("selected");
     $(this).addClass("selected");
     currentAgent = $(this).find(".avatar .material-icons").text();
@@ -168,7 +169,7 @@ $(function () {
     }
   });
 
-  $(".prototype-conversation .prototype-card").click(function () {
+  $(".prototype-conversation .prototype-card").on('click', function () {
     var step = $(this).data("prototype-step");
     console.log(step);
     $(".prototype-modal").scrollTop(0);
@@ -176,7 +177,7 @@ $(function () {
     $("#datachain-" + step).show();
     $(".prototype-modal").css("transform", "translateX(-375px)");
   });
-  $(".prototype-modal").click(function () {
+  $(".prototype-modal").on('click', function () {
     $(".prototype-modal .data-chain").hide();
     var index = $(currentSection).attr("data-stepIndex");
     var frame = $(currentSection).attr("data-stepFrame");
@@ -187,7 +188,7 @@ $(function () {
   scroller
     .setup({
       step: ".step",
-      offset: 1,
+      offset: 0.5,
       // progress: true,
     })
     .onStepEnter((response) => {
@@ -270,7 +271,7 @@ $(function () {
   // setup resize event
   window.addEventListener("resize", scroller.resize);
   $(window).resize(function () {
-    $(".prototype-content").mouseover(function () {
+    $(".prototype-content").on('mouseover', function () {
       var scale = Math.min(1, ($(window).height() - 150) / 812);
       $(this).css("transform", `scaleX(${scale}) scaleY(${scale})`);
     });
@@ -283,6 +284,7 @@ $(function () {
 });
 
 function scrollToSection(sectionElement) {
+  if (!sectionElement.offset()) return;
   scroller.disable();
   $("html, body").animate(
     {
