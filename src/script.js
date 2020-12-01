@@ -140,11 +140,9 @@ $(function () {
     scrollToSection($(this).parents(".step"));
   });
   $(".nav-prev-section").on('click', function () {
-    debugger;
     scrollToSection($(currentSection).prevAll(".step").first());
   });
   $(".nav-next-section").on('click', function () {
-    debugger
     scrollToSection($(currentSection).nextAll(".step").first());
   });
   $(".cards-principles .btn-circle").on('click', function () {
